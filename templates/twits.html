@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>${
+                twits.reduce((accum, aTwit) => accum + `<li>(${aTwit.user.screenname} @ ${aTwit.createdAt.toLocaleString('en-US')})<br>${aTwit.content}</li>`, '')
+             }
+        </ul>
+    </div>
+    
+    <form action="/twit" method="post">
+        <input type="text" name="twit" id="twit" required>
+        <input type="submit" name="submit" value="Twit!" />
+    </form>  
+</body>
+</html>

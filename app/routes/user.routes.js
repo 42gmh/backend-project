@@ -29,4 +29,16 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
+
+  app.get(
+    "/twits",
+    [authJwt.verifyToken],
+    controller.loadtwits
+  );
+
+  app.post(
+    "/twit",
+    [authJwt.verifyToken],
+    controller.createtwit
+  );
 };

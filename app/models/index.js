@@ -40,6 +40,7 @@ db.user.belongsToMany(db.role, {
 });
 
 db.user.hasMany(db.twit);
+db.twit.belongsTo(db.user);
 
 db.ROLES = ["user", "admin", "moderator"];
 
