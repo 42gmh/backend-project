@@ -33,9 +33,8 @@ expressServer.get("/", (req, res) => {
    console.log('Cookies: ', req.cookies);
 
     res.render('index', {
-      partials: {
-        signinform : "/partials/signin-form"
-    }
+      partials: { signinform : "/partials/signin-form" },    
+      locals : { err : null }
     });
 });
 

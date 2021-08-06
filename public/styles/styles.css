@@ -1,0 +1,21 @@
+/* * {
+    border: 1px solid pink;
+} */
+
+.twitpanel{
+    border: 1px solid black;
+}
+
+.twitpanel{
+    font-weight: bolder;
+}
+
+.twitwhen{
+    font-weight: lighter;
+}
+
+/* .twitcontainer{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+} */

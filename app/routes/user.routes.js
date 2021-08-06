@@ -10,24 +10,10 @@ module.exports = function(app) {
     next();
   });
 
-  app.get("/api/test/all", controller.allAccess);
-
   app.get(
-    "/api/test/user",
+    "/usersettings",
     [authJwt.verifyToken],
-    controller.userBoard
-  );
-
-  app.get(
-    "/api/test/mod",
-    [authJwt.verifyToken, authJwt.isModerator],
-    controller.moderatorBoard
-  );
-
-  app.get(
-    "/api/test/admin",
-    [authJwt.verifyToken, authJwt.isAdmin],
-    controller.adminBoard
+    controller.userSettings
   );
 
   app.get(
@@ -41,4 +27,11 @@ module.exports = function(app) {
     [authJwt.verifyToken],
     controller.createtwit
   );
+
+  app.post(
+    "/deltwit",
+    [authJwt.verifyToken],
+    controller.deletetwit
+  );
+
 };

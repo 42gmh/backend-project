@@ -26,13 +26,15 @@ exports.signup = (req, res) => {
           }
         }).then(roles => {
           user.setRoles(roles).then(() => {
-            res.send({ message: "User was registered successfully!" });
+            console.log("User:" + user.username + " created with roles:" + roles);
+            // res.send({ message: "User was registered successfully!" });
           });
         });
       } else {
         // user role = 1
         user.setRoles([1]).then(() => {
-          res.send({ message: "User was registered successfully!" });
+          console.log("User:" + user.username + " created with default role.");
+          // res.send({ message: "User was registered successfully!" });
         });
       }
     }).then(() => {
@@ -55,7 +57,10 @@ exports.signin = (req, res) => {
   })
     .then(user => {
       if (!user) {
-        return res.status(404).send({ message: "User Not found." });
+        return res.render('index', {
+          partials: { signinform : "/partials/signin-form" },    
+          locals : { err : "Unable to login." }
+        });
       }
 
       var passwordIsValid = bcrypt.compareSync(
@@ -64,9 +69,9 @@ exports.signin = (req, res) => {
       );
 
       if (!passwordIsValid) {
-        return res.status(401).send({
-          accessToken: null,
-          message: "Invalid Password!"
+        return res.render('index', {
+          partials: { signinform : "/partials/signin-form" },    
+          locals : { err : "Unable to Login." }
         });
       }
 
@@ -74,27 +79,9 @@ exports.signin = (req, res) => {
         expiresIn: 86400 // 24 hours
       });
 
-      // res.set('x-access-token', token);
-
-      // var authorities = [];
-      // user.getRoles().then(roles => {
-      //   for (let i = 0; i < roles.length; i++) {
-      //     authorities.push("ROLE_" + roles[i].name.toUpperCase());
-      //   }
-        
       res.cookie('twittoken', token, { httpOnly: true, secure: false, maxAge: 3600000 });
 
       res.redirect(303, '/twits');
-
-        // res.status(200).send({
-        //   id: user.id,
-        //   username: user.username,
-        //   email: user.email,
-        //   roles: authorities,
-        //   accessToken: token
-        // });
-
-      // });
     })
     .catch(err => {
       res.status(500).send({ message: err.message });

@@ -8,7 +8,7 @@ verifyToken = (req, res, next) => {
 
   let token = req.cookies.twittoken;
 
-  console.log("COOKIE?", req.cookies)
+  // console.log("COOKIE?", req.cookies)
 
   if (!token) {
     return res.status(403).send({
@@ -25,6 +25,7 @@ verifyToken = (req, res, next) => {
     console.log("The Decoded Token:", decoded);
     
     req.userId = decoded.id;
+    console.log("Who dis?", req.userId);
     next();
   });
 };

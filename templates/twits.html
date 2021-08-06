@@ -5,18 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
-    <div>
-        <ul>${
-                twits.reduce((accum, aTwit) => accum + `<li>(${aTwit.user.screenname} @ ${aTwit.createdAt.toLocaleString('en-US')})<br>${aTwit.content}</li>`, '')
-             }
-        </ul>
+    <div class="twitcontainer">
+        ${
+            twits.reduce((accum, aTwit) => accum + 
+            `<div id="twit-${aTwit.id}" class="twitpanel">
+                    <p class='twithead'><span class="twitwho">${aTwit.user.screenname}</span><span class="twitwhen">@ ${aTwit.createdAt.toLocaleString('en-US')}</span></p>
+                    <p class='twitconntent'>${aTwit.content}</p>
+                    ${aTwit.isMine ? `<form action="/deltwit" method="post">
+                                        <input type="hidden" name="twitToDel" id="twitToDel" value="${aTwit.id}">
+                                        <input type="submit" value="&#128465">
+                                    </form>` : ''}
+            </div>`, '')
+        }
     </div>
     
     <form action="/twit" method="post">
         <input type="text" name="twit" id="twit" required>
         <input type="submit" name="submit" value="Twit!" />
-    </form>  
+    </form>
+
+    <form action="/usersettings" method="get">
+        <input type="submit" name="submit" value="&#9881"/>
+    </form>
+
 </body>
 </html>
