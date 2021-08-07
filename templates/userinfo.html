@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twit-ish Update User Info</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
+</head>
+<body>
+    <h1>Update Settings for User: ${userInfo.username}</h1>   
+    <div class="project-meta">
+        This page demonstrates reading from and updating Postgres, as well as Express 
+        templates and JWT token validation.
+    </div> 
+
+    <form action="/updateuser" method="post">
+        <label for="screenname">Screen Name</label>
+        <input type="text" name="screenname" id="screenname" value="${userInfo.screenname}" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value=${userInfo.email} required>
+        <input type="submit" name="submit" value="Update" />
+    </form>
+
+    ${updateStatus ? `<p class='statusmsg'>${updateStatus}</p>` : '<br>'}
+
+    <a href="/twits">Back to the Twits!</a>
+</body>
+</html>

@@ -14,6 +14,24 @@
     font-weight: lighter;
 }
 
+.errmsg{
+    background: #FFCCCB;
+    color: darkred;
+    font-weight: bolder;
+}
+.statusmsg{
+    background: #CCFDCC;
+    color: darkgreen;
+    font-weight: bolder;
+}
+
+.project-meta{
+    border: 1px solid black;
+    background: lightgray;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
 /* .twitcontainer{
     display: grid;
     align-content: center;

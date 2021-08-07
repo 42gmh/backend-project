@@ -16,6 +16,12 @@ module.exports = function(app) {
     controller.userSettings
   );
 
+  app.post(
+    "/updateuser",
+    [authJwt.verifyToken],
+    controller.updateUserSettings
+  );
+
   app.get(
     "/twits",
     [authJwt.verifyToken],

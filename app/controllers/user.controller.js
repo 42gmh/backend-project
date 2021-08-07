@@ -2,10 +2,35 @@ const db = require("../models");
 const Twit = db.twit;
 const User = db.user;
 
-exports.userSettings = (req, res) => {
+
+exports.updateUserSettings = (req, res) => {
 
     console.log("Hi!", req.userId);
-    res.status(200);
+    console.log("Hi!", req.body.screenname);
+    console.log("Hi!", req.body.email);
+
+    User.update(
+        { screenname: req.body.screenname, email: req.body.email}, 
+        { where: { id: req.userId } }
+    ).then( () => {
+        findUserAndRender(req.userId, "Update successful!", res);
+    });
+}
+
+exports.userSettings = (req, res) => {
+    findUserAndRender(req.userId, null, res);
+}
+
+function findUserAndRender(userId, status, res){
+    
+    User.findByPk(userId).then((theUser) => { 
+        res.render('userinfo', {
+            locals : {
+                userInfo : theUser,
+                updateStatus : status
+            }
+        });
+    });
 }
 
 exports.loadtwits = (req, res) => {

@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Twit-ish</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
+    <div class="project-meta">
+        This page demonstrates reading, writing, and deleting from Postgres, as well as Express 
+        templates and JWT token validation.
+    </div>
     <div class="twitcontainer">
         ${
             twits.reduce((accum, aTwit) => accum + 
@@ -31,5 +35,8 @@
         <input type="submit" name="submit" value="&#9881"/>
     </form>
 
+    <form action="/signout" method="post">
+        <input type="submit" name="signout" value="signout"/>
+    </form>
 </body>
 </html>

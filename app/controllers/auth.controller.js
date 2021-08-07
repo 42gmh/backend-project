@@ -27,14 +27,12 @@ exports.signup = (req, res) => {
         }).then(roles => {
           user.setRoles(roles).then(() => {
             console.log("User:" + user.username + " created with roles:" + roles);
-            // res.send({ message: "User was registered successfully!" });
           });
         });
       } else {
         // user role = 1
         user.setRoles([1]).then(() => {
           console.log("User:" + user.username + " created with default role.");
-          // res.send({ message: "User was registered successfully!" });
         });
       }
     }).then(() => {
@@ -48,6 +46,12 @@ exports.signup = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
+exports.signout = (req, res) => {
+  res.cookie('twittoken', "", { httpOnly: true, secure: false, maxAge: 0 });
+
+  res.redirect(303, "/");
+}
 
 exports.signin = (req, res) => {
   User.findOne({
