@@ -4,32 +4,18 @@ const db = require("../models");
 const User = db.user;
 
 verifyToken = (req, res, next) => {
-  // let token = req.headers["x-access-token"];
 
   let token = req.cookies.twittoken;
 
-  // console.log("COOKIE?", req.cookies)
-
   if (!token) {
     return res.redirect(303, "/");
-    
-    // res.status(403).send({
-    //   message: "No token provided!"
-    // });
   }
 
   jwt.verify(token, config.secret, (err, decoded) => {
     if (err) {
       return res.redirect(303, "/");
-
-      // return res.status(401).send({
-      //   message: "Unauthorized!"
-      // });
     }
-    console.log("The Decoded Token:", decoded);
-    
     req.userId = decoded.id;
-    console.log("Who dis?", req.userId);
     next();
   });
 };
