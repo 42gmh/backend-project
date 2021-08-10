@@ -23,16 +23,18 @@ expressServer.set('view engine', 'html');
 expressServer.get("/signin", (req, res) => {
 
     res.render('signin', {
-      partials: { signinform : "/partials/signin-form" },    
+      partials: { signinform : "/partials/signin-form",
+                  metapreamble :  "/partials/meta-preamble",
+                  metaghlink :  "/partials/meta-gh-link"},    
       locals : { err : null }
     });
 });
 
 expressServer.get("/signup", (req, res) => {
   res.render('signup', {
-    locals : {
-      err : null
-    }
+    partials: { metapreamble :  "/partials/meta-preamble",
+                metaghlink :  "/partials/meta-gh-link"},    
+    locals : { err : null }
   });
 });
 

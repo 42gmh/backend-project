@@ -37,9 +37,9 @@ exports.signup = (req, res) => {
       }
     }).then(() => {
       res.render('signup-success', {
-        partials: {
-          signinform : "/partials/signin-form"
-      }
+        partials: { signinform : "/partials/signin-form",
+                    metapreamble :  "/partials/meta-preamble",
+                    metaghlink :  "/partials/meta-gh-link" }
       });    
     })
     .catch(err => {
@@ -62,7 +62,9 @@ exports.signin = (req, res) => {
     .then(user => {
       if (!user) {
         return res.render('signin', {
-          partials: { signinform : "/partials/signin-form" },    
+          partials: { signinform : "/partials/signin-form",
+                      metapreamble :  "/partials/meta-preamble",
+                      metaghlink :  "/partials/meta-gh-link" },    
           locals : { err : "Unable to login." }
         });
       }
@@ -74,7 +76,9 @@ exports.signin = (req, res) => {
 
       if (!passwordIsValid) {
         return res.render('signin', {
-          partials: { signinform : "/partials/signin-form" },    
+          partials: { signinform : "/partials/signin-form",
+                      metapreamble :  "/partials/meta-preamble",
+                      metaghlink :  "/partials/meta-gh-link" },    
           locals : { err : "Unable to Login." }
         });
       }

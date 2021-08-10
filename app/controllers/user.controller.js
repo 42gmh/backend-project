@@ -25,10 +25,11 @@ function findUserAndRender(userId, status, res){
     
     User.findByPk(userId).then((theUser) => { 
         res.render('userinfo', {
-            locals : {
-                userInfo : theUser,
-                updateStatus : status
-            }
+            partials: { signinform : "/partials/signin-form",
+                        metapreamble :  "/partials/meta-preamble",
+                        metaghlink :  "/partials/meta-gh-link"},
+            locals : { userInfo : theUser, 
+                       updateStatus : status }
         });
     });
 }
@@ -48,9 +49,10 @@ exports.loadtwits = (req, res) => {
           });
 
         res.render('index', {
-            locals : {
-                twits
-            }
+            partials: { signinform : "/partials/signin-form",
+                        metapreamble :  "/partials/meta-preamble",
+                        metaghlink :  "/partials/meta-gh-link"},
+            locals : { twits }
         });
     });
 }

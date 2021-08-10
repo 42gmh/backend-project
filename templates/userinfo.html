@@ -11,8 +11,12 @@
 <body>
     <h1>Update Settings for User: ${userInfo.username}</h1>   
     <div class="project-meta">
-        This page demonstrates reading from and updating Postgres, as well as Express 
-        templates and JWT token validation.
+        ${metapreamble}
+
+        <p>This page demonstrates: reading from and updating Postgres, as well as Express, 
+            Express templates, and JWT token validation.</p>
+
+        ${metaghlink}
     </div> 
 
     <form action="/updateuser" method="post">

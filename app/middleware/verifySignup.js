@@ -11,9 +11,10 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
   }).then(user => {
     if (user) {
       res.render('signup', {
-        locals: {
-          err : "Username is already in use!"
-        }
+        partials: { signinform : "/partials/signin-form",
+                    metapreamble :  "/partials/meta-preamble",
+                    metaghlink :  "/partials/meta-gh-link"},
+        locals: { err : "Username is already in use!" }
       });
       return;
     }
@@ -26,9 +27,10 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
     }).then(user => {
       if (user) {
         res.render('signup', {
-          locals: {
-            err : "Email is already in use!"
-          }
+          partials: { signinform : "/partials/signin-form",
+                      metapreamble :  "/partials/meta-preamble",
+                      metaghlink :  "/partials/meta-gh-link"},
+          locals: { err : "Email is already in use!" }
         });
         return;
       }
