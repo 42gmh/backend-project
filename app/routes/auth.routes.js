@@ -11,7 +11,7 @@ module.exports = function(app) {
   });
 
   app.post(
-    "/api/auth/signup",
+    "/signup",
     [
       verifySignUp.checkDuplicateUsernameOrEmail,
       verifySignUp.checkRolesExisted
