@@ -47,7 +47,7 @@ exports.loadtwits = (req, res) => {
             aTwit.isMine = (aTwit.user.id == req.userId);
           });
 
-        res.render('twits', {
+        res.render('index', {
             locals : {
                 twits
             }
@@ -61,7 +61,7 @@ exports.createtwit = (req, res) => {
         content: req.body.twit,
         userId: req.userId
     }).then(() => {
-        res.redirect(303, '/twits');
+        res.redirect(303, '/');
     }); 
 }
 

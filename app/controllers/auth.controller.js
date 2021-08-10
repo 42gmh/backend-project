@@ -50,7 +50,7 @@ exports.signup = (req, res) => {
 exports.signout = (req, res) => {
   res.cookie('twittoken', "", { httpOnly: true, secure: false, maxAge: 0 });
 
-  res.redirect(303, "/");
+  res.redirect(303, "/signin");
 }
 
 exports.signin = (req, res) => {
@@ -61,7 +61,7 @@ exports.signin = (req, res) => {
   })
     .then(user => {
       if (!user) {
-        return res.render('index', {
+        return res.render('signin', {
           partials: { signinform : "/partials/signin-form" },    
           locals : { err : "Unable to login." }
         });
@@ -73,7 +73,7 @@ exports.signin = (req, res) => {
       );
 
       if (!passwordIsValid) {
-        return res.render('index', {
+        return res.render('signin', {
           partials: { signinform : "/partials/signin-form" },    
           locals : { err : "Unable to Login." }
         });
@@ -85,7 +85,7 @@ exports.signin = (req, res) => {
 
       res.cookie('twittoken', token, { httpOnly: true, secure: false, maxAge: 3600000 });
 
-      res.redirect(303, '/twits');
+      res.redirect(303, '/');
     })
     .catch(err => {
       res.status(500).send({ message: err.message });

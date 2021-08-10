@@ -20,10 +20,9 @@ expressServer.engine('html', es6Renderer);
 expressServer.set('views', 'templates');
 expressServer.set('view engine', 'html');
 
-// simple route
-expressServer.get("/", (req, res) => {
+expressServer.get("/signin", (req, res) => {
 
-    res.render('index', {
+    res.render('signin', {
       partials: { signinform : "/partials/signin-form" },    
       locals : { err : null }
     });
@@ -39,6 +38,11 @@ expressServer.get("/signup", (req, res) => {
 
 require('./app/routes/auth.routes')(expressServer);
 require('./app/routes/user.routes')(expressServer);
+
+expressServer.get("*", (req, res) => {
+
+  res.redirect(303, '/');
+})
 
   
 // set port, listen for requests

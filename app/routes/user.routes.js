@@ -11,6 +11,13 @@ module.exports = function(app) {
   });
 
   app.get(
+    "/",
+    [authJwt.verifyToken],
+    controller.loadtwits
+  );
+
+
+  app.get(
     "/usersettings",
     [authJwt.verifyToken],
     controller.userSettings
@@ -20,12 +27,6 @@ module.exports = function(app) {
     "/updateuser",
     [authJwt.verifyToken],
     controller.updateUserSettings
-  );
-
-  app.get(
-    "/twits",
-    [authJwt.verifyToken],
-    controller.loadtwits
   );
 
   app.post(

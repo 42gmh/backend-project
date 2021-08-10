@@ -8,12 +8,12 @@ verifyToken = (req, res, next) => {
   let token = req.cookies.twittoken;
 
   if (!token) {
-    return res.redirect(303, "/");
+    return res.redirect(303, "/signin");
   }
 
   jwt.verify(token, config.secret, (err, decoded) => {
     if (err) {
-      return res.redirect(303, "/");
+      return res.redirect(303, "/signin");
     }
     req.userId = decoded.id;
     next();

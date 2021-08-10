@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twit-ish</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+<body>
+    <h1>Welcome to Twit-ish!</h1>
+
+    <div class="project-meta">
+        <p>This is my Digitalcrafts Flex 2021 CRUD backend project. It is a lightweight Twitter clone that 
+            is used to demonstrate the following backend technologies: bcrypt, JWT, Express, Express 
+            Templates, Sequelize, Postgres</p>
+
+        <p>This page demonstrates: Reading from Postgres, authorization and token creation via bcrypt and JWT 
+            as well as Express Templates if there is an error.</p>
+    </div>
+
+    <h2>Existing user? Please Sign In...</h2>
+
+    ${signinform}
+
+    ${
+        err ? `<div class='errmsg'><p>${err} -- Please try again.</p></div>` : ''
+    }
+
+    <h3>Otherwise, please <a href="/signup">Sign Up...</a></h3>
+    
+</body>
+</html>
