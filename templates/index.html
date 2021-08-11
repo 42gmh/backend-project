@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
-<div class="fff">
+<div class="root-container">
     <h1>Twit-ish</h1>
 
     <div class="project-meta">
@@ -22,7 +22,9 @@
 
     <div class="twitform">
         <form action="/twit" method="post" id="twitinput">
-            <input type="text" name="twit" id="twit" size="65" required>
+            <!-- <input type="text" name="twit" id="twit" size="50" required> -->
+            <textarea id="twit" name="twit" rows="3" cols="45"></textarea>
+            <br>
             <input type="submit" name="submit" value="Twit!" />
         </form>
     </div>
