@@ -1,27 +1,11 @@
-/* * {
-    border: 1px solid pink;
-} */
-
-.twitpanel{
-    border: 1px solid black;
-}
-
-.twitpanel{
-    font-weight: bolder;
-}
-
-.twitwhen{
-    font-weight: lighter;
-}
-
-h1{
-    text-align:center;
-}
-
 html, body{
     height: 100%;
     background-color: #F4EEFF;
     color: #424874;
+}
+
+h1{
+    text-align:center;
 }
 
 .root-container{
@@ -33,7 +17,18 @@ html, body{
 .twitcontainer{
     width: 50%;
     margin: 0 auto;
+}
+
+.twitpanel{
+    border: 1px solid black;
+    font-weight: bolder;
+    padding: 3px;
+    margin-bottom: 3px;
     background-color: #A6B1E1;
+}
+
+.twitwhen{
+    font-weight: lighter;
 }
 
 .twitform{

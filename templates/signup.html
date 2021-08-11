@@ -8,28 +8,41 @@
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
-    <div class="project-meta">
-        ${metapreamble}
+    <div class="root-container">
 
-        <p>This page demonstrates: writing to Postgres, as well as Express and Express templates.</p>
+        <h1>Twit-ish User Signup</h1>
+        <div class="project-meta">
+            ${metapreamble}
 
-        ${metaghlink}
+            <p>This page demonstrates: writing to Postgres, as well as Express and Express templates.</p>
+
+            ${metaghlink}
+        </div>
+
+        <form action="/signup" method="post">
+            <div>
+                <input type="text" name="username" id="username" required>
+                <label for="username">Username</label>
+            </div>
+            <div>
+                <input type="text" name="screenname" id="screenname" required>
+                <label for="screenname">Screenname</label>
+            </div>
+            <div>
+                <input type="email" name="email" id="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div>
+                <input type="password" name="password" id="password" required>
+                <label for="password">Password</label>
+            </div>
+            <br>
+            <input type="submit" name="submit" value="Create User" />
+        </form>
+        
+        ${
+            err ? `<p class='errmsg'>${err} -- Please try again.</p>` : ''
+        }
     </div>
-
-    <form action="/signup" method="post">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" required>
-        <label for="screenname">Screenname</label>
-        <input type="text" name="screenname" id="screenname" required>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
-        <input type="submit" name="submit" value="Create User" />
-    </form>
-    
-    ${
-        err ? `<p class='errmsg'>${err} -- Please try again.</p>` : ''
-    }
 </body>
 </html>

@@ -9,27 +9,34 @@
 
 </head>
 <body>
-    <h1>Update Settings for User: ${userInfo.username}</h1>   
-    <div class="project-meta">
-        ${metapreamble}
+    <div class="root-container">
 
-        <p>This page demonstrates: reading from and updating Postgres, as well as Express, 
-            Express templates, and JWT token validation.</p>
+        <h1>Update Settings for User: ${userInfo.username}</h1>   
+        <div class="project-meta">
+            ${metapreamble}
 
-        ${metaghlink}
-    </div> 
+            <p>This page demonstrates: reading from and updating Postgres, as well as Express, 
+                Express templates, and JWT token validation.</p>
 
-    <form action="/updateuser" method="post">
-        <label for="screenname">Screen Name</label>
-        <input type="text" name="screenname" id="screenname" value="${userInfo.screenname}" required>
+            ${metaghlink}
+        </div> 
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" value=${userInfo.email} required>
-        <input type="submit" name="submit" value="Update" />
-    </form>
+        <form action="/updateuser" method="post">
+            <div>
+                <input type="text" name="screenname" id="screenname" value="${userInfo.screenname}" required>
+                <label for="screenname">Screen Name</label>
+            </div>
+            <div>
+                <input type="email" name="email" id="email" value=${userInfo.email} required>
+                <label for="email">Email</label>
+            </div>    
+            <br>
+            <input type="submit" name="submit" value="Update" />
+        </form>
 
-    ${updateStatus ? `<p class='statusmsg'>${updateStatus}</p>` : '<br>'}
+        ${updateStatus ? `<p class='statusmsg'>${updateStatus}</p>` : '<br>'}
 
-    <a href="/">Back to the Twits!</a>
+        <a href="/">Back to the Twits!</a>
+    </div>
 </body>
 </html>
