@@ -8,6 +8,9 @@
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
+<div class="fff">
+    <h1>Twit-ish</h1>
+
     <div class="project-meta">
         ${metapreamble}
 
@@ -16,7 +19,16 @@
 
         ${metaghlink}
     </div>
+
+    <div class="twitform">
+        <form action="/twit" method="post" id="twitinput">
+            <input type="text" name="twit" id="twit" size="65" required>
+            <input type="submit" name="submit" value="Twit!" />
+        </form>
+    </div>
+    
     <div class="twitcontainer">
+    
         ${
             twits.reduce((accum, aTwit) => accum + 
             `<div id="twit-${aTwit.id}" class="twitpanel">
@@ -29,11 +41,6 @@
             </div>`, '')
         }
     </div>
-    
-    <form action="/twit" method="post">
-        <input type="text" name="twit" id="twit" required>
-        <input type="submit" name="submit" value="Twit!" />
-    </form>
 
     <form action="/usersettings" method="get">
         <input type="submit" name="submit" value="&#9881"/>
@@ -42,5 +49,7 @@
     <form action="/signout" method="post">
         <input type="submit" name="signout" value="signout"/>
     </form>
+
+</div>
 </body>
 </html>
