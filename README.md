@@ -1,5 +1,5 @@
 # Twit-ish -- DigitalCrafts Flex 2021 Backend Project
-This is a project demonstrating backend concepts. It is a lightweight Twitter clone that demonstrates CRUD operations from a rudimentary HTML frontend.
+This is a project demonstrating backend concepts. It is a lightweight Twitter clone that demonstrates CRUD operations from a rudimentary HTML front end.
 
 ## Technologies Used
 + Node.js
@@ -47,8 +47,8 @@ node initdb.js
 ```
 
 ## Acknowledgements
-+ Huge shout out to Sanjeev Thiyagarjan's extremely clear tuturial on PERN stack deploymeny to AWS EC2: https://github.com/Sanjeev-Thiyagarajan/PERN-STACK-DEPLOYMENT
-+ The off-book BezKoder lesson we had on JWT/bcrypt which helped soldify my undesrtanding of how to do the authentication and authorization bits: https://www.bezkoder.com/node-js-jwt-authentication-postgresql/
++ [Sanjeev Thiyagarjan's extremely clear tuturial on PERN stack deployment to AWS EC2](https://github.com/Sanjeev-Thiyagarajan/PERN-STACK-DEPLOYMENT)
++ The off-book [BezKoder lesson we had on JWT/bcrypt](https://www.bezkoder.com/node-js-jwt-authentication-postgresql/) which helped soldify my undesrtanding of how to do the authentication and authorization bits. 
 
 
 
